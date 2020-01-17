@@ -1,0 +1,5 @@
+---
+# defaults file for prep
+
+using_vpn: false
+vpn_interface: tun0

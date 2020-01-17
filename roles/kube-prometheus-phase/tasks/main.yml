@@ -1,0 +1,16 @@
+---
+# tasks file for kube-prometheus-phase
+
+- name: Copy manifests files from the installer to the kube-masters
+  copy:
+      src: "{{ playbook_dir }}/kube-prometheus/manifests/"
+      dest: "{{ manifest_dir }}"
+
+
+- name: Apply Custom Resource Definitions (CRD) from Kube-Prometheus
+  command: "kubectl --kubeconfig {{ kubeconf_path }} apply -f {{ manifest_dir }}/setup/"
+
+
+- name: Apply manifests from Kube-Prometheus
+  command: "kubectl --kubeconfig {{ kubeconf_path }} apply -f {{ manifest_dir }}"
+

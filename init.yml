@@ -1,0 +1,24 @@
+---
+- hosts: localhost:all
+  gather_facts: false
+  become: yes
+  roles: 
+    - { role: prep }
+
+
+- import_playbook: kubespray/cluster.yml
+
+
+- hosts: kube-master
+  gather_facts: false
+  become: yes
+  roles:
+          - { role: kubespray-phase }
+
+
+- hosts: kube-master
+  gather_facts: false
+  become: yes
+  roles:
+          - { role: kube-prometheus-phase }
+

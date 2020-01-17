@@ -1,0 +1,5 @@
+---
+# defaults file for kubespray-phase
+
+registry_conf_dir: "{{ k8s_misc_dir }}/registry"
+kubeconf_path: "/etc/kubernetes/admin.conf"

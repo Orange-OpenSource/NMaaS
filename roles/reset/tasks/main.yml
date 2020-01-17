@@ -1,0 +1,25 @@
+---
+# tasks file for reset
+
+- name: Create an iptables folder
+  file:
+          path: "{{ iptables_dir }}"
+          state: directory
+
+- name: Copy the iptables reset file
+  copy:
+          src: "{{ role_path }}/files/iptables_reset.sh"
+          dest: "{{ iptables_dir }}/iptables_reset.sh"
+
+- name: Reset the iptables
+  command: "bash {{ iptables_dir }}/iptables_reset.sh"
+
+- name: Remove any previous kubectl tool on the installer
+  file:
+    path: "{{ inventory_dir }}/artifacts"
+    state: absent
+  delegate_to: localhost
+
+- name: Tear down every kube-prometheus stack
+  command: "kubectl --kubeconfig {{ kubeconf_path }} delete --ignore-not-found=true -f {{ manifest_dir }}/ -f {{ manifest_dir }}/setup"
+  delegate_to: "{{ groups['kube-master'][0] }}"

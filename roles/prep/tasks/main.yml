@@ -1,0 +1,24 @@
+---
+# tasks file for prep
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+
+- name: Autoremove unused apt packages
+  apt:
+    autoremove: yes
+
+
+- name: Install python packages
+  apt:
+    pkg:
+      - python
+      - python3
+      - python-pip
+      - python3-pip
+
+- name: Allow split-tunneling
+  command: "nmcli connection modify {{ vpn_interface }} ipv4.never-default true"
+  when: using_vpn

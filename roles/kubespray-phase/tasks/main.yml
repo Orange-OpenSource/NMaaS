@@ -1,0 +1,15 @@
+---
+# tasks file for kubespray-phase
+
+- name: Create a registry folder
+  file:
+          path: "{{ registry_conf_dir }}"
+          state: directory
+
+- name: Copy the registry configuration file
+  copy:
+          src: "{{ role_path }}/files/registry-pv.yaml"
+          dest: "{{ registry_conf_dir }}/registry-pv.yaml"
+
+- name: Apply local registry configuration
+  command: "kubectl --kubeconfig {{ kubeconf_path }} apply -f {{ registry_conf_dir }}/registry-pv.yaml"

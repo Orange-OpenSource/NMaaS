@@ -1,0 +1,25 @@
+### Installer
+# kubeconfig_localhost: false
+kubeconfig_localhost: true
+# kubectl_localhost: false
+kubectl_localhost: true
+
+
+### Kubernetes
+kubeconf_path: "/etc/kubernetes/admin.conf"
+k8s_misc_dir: "/etc/opt"
+
+
+### Kube-Prometheus
+manifest_dir: "{{ k8s_misc_dir}}/manifests"
+
+
+### Local registry
+# registry_enabled: false
+registry_enabled: true
+# registry_storage_class: ""
+registry_storage_class: "local-storage"
+#local_volume_provisioner_enabled: false
+local_volume_provisioner_enabled: true
+registry_conf_dir: "{{ k8s_misc_dir }}/registry"
+
