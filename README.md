@@ -38,11 +38,13 @@ Phase 1 _ Set up the environment
 sudo apt install openssh-server		
 ssh-copy-id {user}@{node}	# On every node of your infrastructure
 ```
+
 	- (Optional) Checkout your Kubespray and Kube-Prometheus prefered version if needed
 ```bash
 git clone https://github.com/kubernetes-sigs/kubespray.git
 git clone https://github.com/coreos/kube-prometheus.git
 ```
+
 	- Install the required modules
 ```bash
 sudo pip install -r requirements.txt
@@ -55,16 +57,19 @@ Phase 2 _ List your machines
 ```bash
 sudo mkdir -p inventory/host_vars/node1/
 ```
+
 		- Write a inventory/host_vars/node1/vars file for undisclosed sensitive data, following this template :
 ```bash
 ansible_user: "{{ vault_ansible_user_node1 }}"
 ansible_port: ACTUAL_PORT_NUMBER
 ansible_become_password: "{{ vault_ansible_become_password_node1 }}"
 ```
+
 		- Create a inventory/host_vars/node1/vault file where sensitive data is encrypted
 ```bash
 ansible-vault create inventory/mycluster/host_vars/node1/vault
 ```
+
 		Save your crendentials, following this template : 
 ```
 vault_ansible_user_node1: ssh_user
@@ -76,6 +81,7 @@ Phase 3 _ Check and run the code
 ```bash
 ansible all -i inventory/hosts.yml -m ping --ask-vault-pass
 ```
+
 	- Launch it !
 ```
 ansible-playbook -i inventory/hosts.yml --become --become-user=root init.yml --ask-vault-pass  -e@inventory/host_vars/vault -vvv
