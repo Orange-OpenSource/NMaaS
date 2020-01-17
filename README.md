@@ -29,7 +29,7 @@ sudo apt update
 sudo apt install openssh-client
 sudo apt install python python3-pip 	# If needed
 	
-- ON THE INSTALLER :
+- ON THE INSTALLER 
 Phase 1 _ Set up the environment	
 	- Exchange SSH keys
 		sudo apt install openssh-server		
@@ -46,18 +46,14 @@ Phase 2 _ List your machines
 		- Create an individual folder
 			sudo mkdir -p inventory/host_vars/node1/
 		- Write a inventory/host_vars/node1/vars file for undisclosed sensitive data, following this template :
-			# ~~
 			ansible_user: "{{ vault_ansible_user_node1 }}"
 			ansible_port: ACTUAL_PORT_NUMBER
 			ansible_become_password: "{{ vault_ansible_become_password_node1 }}"
-			# ~~
 		- Create a inventory/host_vars/node1/vault file where sensitive data is encrypted
 			ansible-vault create inventory/mycluster/host_vars/node1/vault
 		Save your crendentials, following this template : 
-			# ~~
 			vault_ansible_user_node1: ssh_user
 			vault_ansible_become_password_node1: sudo_password
-			# ~~
 	
 Phase 3 _ Check and run the code
 	- Test the SSH connection and credential authentification from Ansible
