@@ -1,24 +1,44 @@
 ---
+# Copyright 2020 Orange
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+
 # tasks file for reset
+
 
 - name: Create an iptables folder
   file:
           path: "{{ iptables_dir }}"
           state: directory
 
+
 - name: Copy the iptables reset file
   copy:
           src: "{{ role_path }}/files/iptables_reset.sh"
           dest: "{{ iptables_dir }}/iptables_reset.sh"
 
+
 - name: Reset the iptables
   command: "bash {{ iptables_dir }}/iptables_reset.sh"
+
 
 - name: Remove any previous kubectl tool on the installer
   file:
     path: "{{ inventory_dir }}/artifacts"
     state: absent
   delegate_to: localhost
+
 
 - name: Tear down every kube-prometheus stack
   command: "kubectl --kubeconfig {{ kubeconf_path }} delete --ignore-not-found=true -f {{ manifest_dir }}/ -f {{ manifest_dir }}/setup"
