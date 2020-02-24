@@ -1,4 +1,4 @@
-NMaaS - Network Monitoring as a Service
+# NMaaS - Network Monitoring as a Service
 =========
 
 __NMaaS__ is an open source Infrastructure-as-Code based on containers to get an overview of your network status among your servers.
@@ -11,19 +11,23 @@ This Ansible deployment includes :
 - [*Grafana*](https://grafana.com/) - Analytics and monitoring dashboards
 
 
-Prerequisites
+## Prerequisites
 --------------
 
 - *Linux*
-⋅⋅⋅Lastly used with the *Ubuntu 18.04.3 LTS (Bionic)* version on all machines.
+
+   Lastly used with the *Ubuntu 18.04.3 LTS (Bionic)* version on all machines.
+
 - *Python*
-⋅⋅⋅Both the *2.7* and *3.x* versions are included in this run.
+
+   Both the *2.7* and *3.x* versions are included in this run.
+
 - *Ansible*
-⋅⋅⋅Lastly used with the *2.7.12* version.
+
+   Lastly used with the *2.7.12* version.
 
 
-
-How to start
+## How to start
 --------------	
 
 - On the **_nodes_**
@@ -35,7 +39,7 @@ sudo apt install python python3-pip 	# If needed
 	
 - On the **_installer_**
 
-##### Phase 1 _ Set up the environment	
+**Phase 1 - Set up the environment**
 
 ```bash
 # Exchange SSH keys
@@ -52,7 +56,7 @@ sudo pip install -r requirements.txt
 ```
 
 
-##### Phase 2 _ List your machines
+**Phase 2 - List your machines**
 
 ```bash
 # Populate your pool of machines in inventory/hosts.yml with their IP adresses (the given example uses 1 master and 2 workers)
@@ -76,7 +80,7 @@ vault_ansible_become_password_node1: sudo_password
 "~~
 ```
 	
-##### Phase 3 _ Check and run the code
+**Phase 3 - Check and run the code**
 
 ```bash
 # Test the SSH connection and credential authentification from Ansible
@@ -87,13 +91,16 @@ ansible-playbook -i inventory/hosts.yml --become --become-user=root init.yml --a
 ```
 
 
-Downloaded content
+## Downloaded content
 --------------
 As stated earlier, this project is based on previous open-source works, which are pre-included in this repository. As such, we will be referring to :
-- [*Kubespray v2.11.0*] (https://github.com/kubernetes-sigs/kubespray)
-⋅⋅⋅A production-ready Kubernetes cluster.
-- [*Kube-Prometheus v0.2.0*] (https://github.com/coreos/kube-prometheus)
-⋅⋅⋅A bundle of configuration files to operate Kubernetes.
+- [*Kubespray v2.11.0*](https://github.com/kubernetes-sigs/kubespray)
+
+   A production-ready Kubernetes cluster.
+
+- [*Kube-Prometheus v0.2.0*](https://github.com/coreos/kube-prometheus)
+
+   A bundle of configuration files to operate Kubernetes.
 
 Or clone from GitHub:
 
@@ -103,26 +110,29 @@ git clone https://github.com/Orange-OpenSource/NMaaS.git
 
 
 
-Contribute	
+## Contribute	
 --------------
 This project needs you !
 To contribute, please contact Bryan TVT (bryan.tovantrang@orange.com) to discuss your implementation. Any idea is welcome !
 
 You can help in 2 ways :
 - Improving the platform itself
-⋅⋅⋅Whether it deals with the virtualization system, the automation mechanism or even the monitoring process, there is always room for improvement !
+
+   Whether it deals with the virtualization system, the automation mechanism or even the monitoring process, there is always room for improvement !
+
 - Populating with applications
-⋅⋅⋅The platform is nothing if not for the applications it deploys. As such, an "app store" in a local registry is considered to be an optimal way to promote them. It would require an app containerization template, in addition to the app themselves to be supplied.
+
+   The platform is nothing if not for the applications it deploys. As such, an "app store" in a local registry is considered to be an optimal way to promote them. It would require an app containerization template, in addition to the app themselves to be supplied.
 
 
 
-License
+## License
 --------------
 NMaaS is under Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
 Copyright (c) 2020 Orange
 
 
-Authors
+## Authors
 --------------
 - Anthony LAMBERT (anthony.lambert@orange.com)
 - Raquel RUGANI LAGE (raquel.ruganilage@orange.com)
