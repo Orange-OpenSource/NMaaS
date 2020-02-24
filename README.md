@@ -1,5 +1,5 @@
 # NMaaS - Network Monitoring as a Service
-=========
+
 
 __NMaaS__ is an open source Infrastructure-as-Code based on containers to get an overview of your network status among your servers.
 
@@ -12,7 +12,6 @@ This Ansible deployment includes :
 
 
 ## Prerequisites
---------------
 
 - *Linux*
 
@@ -28,9 +27,9 @@ This Ansible deployment includes :
 
 
 ## How to start
---------------	
 
 - On the **_nodes_**
+
 ```bash
 sudo apt update	
 sudo apt install openssh-client
@@ -39,7 +38,7 @@ sudo apt install python python3-pip 	# If needed
 	
 - On the **_installer_**
 
-**Phase 1 - Set up the environment**
+**Phase 1 — Set up the environment**
 
 ```bash
 # Exchange SSH keys
@@ -56,7 +55,7 @@ sudo pip install -r requirements.txt
 ```
 
 
-**Phase 2 - List your machines**
+**Phase 2 — List your machines**
 
 ```bash
 # Populate your pool of machines in inventory/hosts.yml with their IP adresses (the given example uses 1 master and 2 workers)
@@ -80,7 +79,7 @@ vault_ansible_become_password_node1: sudo_password
 "~~
 ```
 	
-**Phase 3 - Check and run the code**
+**Phase 3 — Check and run the code**
 
 ```bash
 # Test the SSH connection and credential authentification from Ansible
@@ -92,7 +91,7 @@ ansible-playbook -i inventory/hosts.yml --become --become-user=root init.yml --a
 
 
 ## Downloaded content
---------------
+
 As stated earlier, this project is based on previous open-source works, which are pre-included in this repository. As such, we will be referring to :
 - [*Kubespray v2.11.0*](https://github.com/kubernetes-sigs/kubespray)
 
@@ -109,9 +108,8 @@ git clone https://github.com/Orange-OpenSource/NMaaS.git
 ```
 
 
-
 ## Contribute	
---------------
+
 This project needs you !
 To contribute, please contact Bryan TVT (bryan.tovantrang@orange.com) to discuss your implementation. Any idea is welcome !
 
@@ -125,15 +123,14 @@ You can help in 2 ways :
    The platform is nothing if not for the applications it deploys. As such, an "app store" in a local registry is considered to be an optimal way to promote them. It would require an app containerization template, in addition to the app themselves to be supplied.
 
 
-
 ## License
---------------
-NMaaS is under Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
+
+NMaaS is under the _Apache 2.0 license_. See the [LICENSE](LICENSE) file for details.
 Copyright (c) 2020 Orange
 
 
 ## Authors
---------------
+
 - Anthony LAMBERT (anthony.lambert@orange.com)
 - Raquel RUGANI LAGE (raquel.ruganilage@orange.com)
 - Bryan TO VAN TRANG (bryan.tovantrang@orange.com)
