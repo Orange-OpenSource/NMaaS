@@ -66,17 +66,21 @@ sudo mkdir -p inventory/host_vars/node1/
 
 # Write a inventory/host_vars/node1/vars file for undisclosed sensitive data, following this template :
 ansible_user: "{{ vault_ansible_user_node1 }}"
-ansible_port: ACTUAL_PORT_NUMBER
+ansible_port: "{{ vault_ansible_port_node1 }}"
 ansible_become_password: "{{ vault_ansible_become_password_node1 }}"
 
 # Create a inventory/host_vars/node1/vault file where sensitive data is encrypted
-ansible-vault create inventory/mycluster/host_vars/node1/vault
+ansible-vault create inventory/host_vars/node1/vault
 
 # Save your crendentials, following this template : 
 #~~
 vault_ansible_user_node1: ssh_user
 vault_ansible_become_password_node1: sudo_password
+vault_ansible_port_node1: port_number
 "~~
+
+# Concatenate every created vars file into one
+ansible-vault view inventory/host_vars/node*/vault > inventory/host_vars/vault && ansible-vault encrypt inventory/host_vars/vault
 ```
 	
 **Phase 3 — Check and run the code**
@@ -87,7 +91,14 @@ ansible all -i inventory/hosts.yml -m ping --ask-vault-pass
 
 # Launch it !
 ansible-playbook -i inventory/hosts.yml --become --become-user=root init.yml --ask-vault-pass  -e@inventory/host_vars/vault -vvv
+
+# Check if everything runs smoothly
+sudo ./inventory/artifacts/kubectl.sh --kubeconfig inventory/artifacts/admin.conf get all --all-namespaces
 ```
+
+For further cluster management, use the kubectl command (kubectl.sh) with the cluster configuration file (admin.conf) in the inventory/artifacts folder, as mentionned in the previous command.
+
+
 
 
 ## Downloaded content

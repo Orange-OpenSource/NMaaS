@@ -43,3 +43,4 @@
 - name: Tear down every kube-prometheus stack
   command: "kubectl --kubeconfig {{ kubeconf_path }} delete --ignore-not-found=true -f {{ manifest_dir }}/ -f {{ manifest_dir }}/setup"
   delegate_to: "{{ groups['kube-master'][0] }}"
+  ignore_errors: true
