@@ -1,7 +1,7 @@
 ---
 # defaults file for kube-prometheus-phase
 
-manifest_dir: "{{ k8s_misc_dir}}/manifests"
 kubeconf_path: "/etc/kubernetes/admin.conf"
+manifest_dir: "{{ k8s_misc_dir}}/manifests"
 
 

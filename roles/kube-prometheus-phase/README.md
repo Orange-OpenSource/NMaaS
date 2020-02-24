@@ -1,38 +1,77 @@
-Role Name
+Role : kubespray-prometheus-phase
 =========
 
-A brief description of the role goes here.
+This role deploys a monitoring system on top of the K8s cluster.
+
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Root access : (default) Include the `become: yes` entry in the playbook
+- `kubectl` command to the K8s cluster
+
 
 Role Variables
 --------------
+By ascending order of [variable precedence](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) :
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+#### From roles/kube-prometheus-phase/defaults/main.yml
+- *kubeconf_path* (file path)
+⋅⋅⋅Specify the location of the configuration file of the K8s cluster.
+- *manifest_dir* (directory path)
+⋅⋅⋅Specify the location of manifests running extra Kubernetes services on top of the K8s cluster.
+
+#### From inventory/group_vars/k8s-cluster/k8s-cluster.yml
+- *kubeconf_path* (file path)
+⋅⋅⋅Specify the location of the configuration file of the K8s cluster.
+- *manifest_dir* (directory path)
+⋅⋅⋅Specify the location of manifests running extra Kubernetes services on top of the K8s cluster.
+
+#### From the playbook immutable variables
+- *playbook_dir* (directory path)
+⋅⋅⋅Specify the location of the running Ansible playbook.
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependency.
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+#### From init.yml
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```
+# ... something something ...
+
+# Deploy a monitoring system on top of the K8s cluster
+- hosts: kube-master
+  gather_facts: false
+  become: yes
+  roles:
+          - role: kube-prometheus-phase
+            tags: [ kube-prometheus-phase ]
+
+```
+To launch this specific role, run :
+
+```
+ansible-playbook init.yml --tags "kube-prometheus-phase"
+```
+
 
 License
 -------
 
-BSD
+NMaaS is under Apache 2.0 license. See the [LICENSE](../../LICENSE) file for details.
+Copyright (c) 2020 Orange
 
-Author Information
+
+Authors
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- Anthony LAMBERT (anthony.lambert@orange.com)
+- Raquel RUGANI LAGE (raquel.ruganilage@orange.com)
+- Bryan TO VAN TRANG (bryan.tovantrang@orange.com)
