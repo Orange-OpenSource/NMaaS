@@ -142,7 +142,7 @@ Copyright (c) 2020 Orange
 
 ## Authors
 
-- Anthony LAMBERT (anthony.lambert@orange.com)
-- Raquel RUGANI LAGE (raquel.ruganilage@orange.com)
-- Bryan TO VAN TRANG (bryan.tovantrang@orange.com)
-
+- Anthony LAMBERT 		(anthony.lambert@orange.com)
+- Raquel RUGANI LAGE		(raquel.ruganilage@orange.com)
+- Bryan TO VAN TRANG 		(bryan.tovantrang@orange.com)
+- Andrés Eloy DELGADO ANDRADE 	(andres.delgado@orange.com)
