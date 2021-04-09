@@ -107,11 +107,11 @@ ansible-playbook -i inventory/hosts.yml --become --become-user=root reset.yml --
 ## Downloaded content
 
 As stated earlier, this project is based on previous open-source works, which are pre-included in this repository. As such, we will be referring to :
-- [*Kubespray v2.11.0*](https://github.com/kubernetes-sigs/kubespray)
+- [*Kubespray v2.15.0*](https://github.com/kubernetes-sigs/kubespray)
 
    A production-ready Kubernetes cluster.
 
-- [*Kube-Prometheus v0.2.0*](https://github.com/coreos/kube-prometheus)
+- [*Kube-Prometheus v0.7.0*](https://github.com/coreos/kube-prometheus)
 
    A bundle of configuration files to operate Kubernetes.
 
@@ -140,7 +140,7 @@ You can help in 2 ways :
 ## License
 
 NMaaS is under the _Apache 2.0 license_. See the [LICENSE](LICENSE) file for details.
-Copyright (c) 2020 Orange
+Copyright (c) 2021 Orange
 
 
 ## Authors
