@@ -98,7 +98,9 @@ sudo ./inventory/artifacts/kubectl.sh --kubeconfig inventory/artifacts/admin.con
 
 For further cluster management, use the kubectl command (kubectl.sh) with the cluster configuration file (admin.conf) in the inventory/artifacts folder, as mentionned in the previous command.
 
-
+## Reset the NMaaS
+If you want to reset the NMaaS state and remove all nodes :
+ansible-playbook -i inventory/hosts.yml --become --become-user=root reset.yml --ask-vault-pass  -e@inventory/host_vars/vault -vvv
 
 
 ## Downloaded content
