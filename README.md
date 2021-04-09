@@ -15,7 +15,7 @@ This Ansible deployment includes :
 
 - *Linux*
 
-   Lastly used with the *Ubuntu 18.04.3 LTS (Bionic)* version on all machines.
+   Lastly used with the *Ubuntu 20.04 LTS (Groovy Gorilla)* version on all machines.
 
 - *Python*
 
@@ -23,7 +23,7 @@ This Ansible deployment includes :
 
 - *Ansible*
 
-   Lastly used with the *2.7.12* version.
+   Lastly used with the *2.9.6* version.
 
 
 ## How to start
@@ -122,7 +122,7 @@ git clone https://github.com/Orange-OpenSource/NMaaS.git
 ## Contribute	
 
 This project needs you !
-To contribute, please contact Bryan TVT (bryan.tovantrang@orange.com) to discuss your implementation. Any idea is welcome !
+To contribute, please contact Andrés Delgado (andres.delgado@orange.com) to discuss your implementation. Any idea is welcome !
 
 You can help in 2 ways :
 - Improving the platform itself
