@@ -1,3 +1,4 @@
 # GitIgnore for NMaaS
 # We don't add kubespray files because they are available on another repository
 /kubespray/
+
