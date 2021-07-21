@@ -36,8 +36,10 @@
 
 
 # Clean the cluster to a blank state
-- import_playbook: kubespray/reset.yml
+# The line below must be uncommented after unit test
+#- import_playbook: kubespray/reset.yml
 
 
 # Remove all servers from the cluster
-- import_playbook: kubespray/remove-node.yml
+# The line below must be uncommented after unit test
+#- import_playbook: kubespray/remove-node.yml

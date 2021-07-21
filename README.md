@@ -15,7 +15,7 @@ This Ansible deployment includes :
 
 - *Linux*
 
-   Lastly used with the *Ubuntu 18.04.3 LTS (Bionic)* version on all machines.
+   Lastly used with the *Ubuntu 20.04 LTS (Groovy Gorilla)* version on all machines.
 
 - *Python*
 
@@ -23,7 +23,7 @@ This Ansible deployment includes :
 
 - *Ansible*
 
-   Lastly used with the *2.7.12* version.
+   Lastly used with the *2.9.6* version.
 
 
 ## How to start
@@ -98,17 +98,20 @@ sudo ./inventory/artifacts/kubectl.sh --kubeconfig inventory/artifacts/admin.con
 
 For further cluster management, use the kubectl command (kubectl.sh) with the cluster configuration file (admin.conf) in the inventory/artifacts folder, as mentionned in the previous command.
 
-
-
+## Reset the NMaaS
+```bash
+# If you want to reset the NMaaS state and remove all nodes :
+ansible-playbook -i inventory/hosts.yml --become --become-user=root reset.yml --ask-vault-pass  -e@inventory/host_vars/vault -vvv
+```
 
 ## Downloaded content
 
 As stated earlier, this project is based on previous open-source works, which are pre-included in this repository. As such, we will be referring to :
-- [*Kubespray v2.11.0*](https://github.com/kubernetes-sigs/kubespray)
+- [*Kubespray v2.15.0*](https://github.com/kubernetes-sigs/kubespray)
 
    A production-ready Kubernetes cluster.
 
-- [*Kube-Prometheus v0.2.0*](https://github.com/coreos/kube-prometheus)
+- [*Kube-Prometheus v0.7.0*](https://github.com/coreos/kube-prometheus)
 
    A bundle of configuration files to operate Kubernetes.
 
@@ -122,7 +125,7 @@ git clone https://github.com/Orange-OpenSource/NMaaS.git
 ## Contribute	
 
 This project needs you !
-To contribute, please contact Bryan TVT (bryan.tovantrang@orange.com) to discuss your implementation. Any idea is welcome !
+To contribute, please contact Andrés Delgado (andres.delgado@orange.com) to discuss your implementation. Any idea is welcome !
 
 You can help in 2 ways :
 - Improving the platform itself
@@ -137,7 +140,7 @@ You can help in 2 ways :
 ## License
 
 NMaaS is under the _Apache 2.0 license_. See the [LICENSE](LICENSE) file for details.
-Copyright (c) 2020 Orange
+Copyright (c) 2021 Orange
 
 
 ## Authors
