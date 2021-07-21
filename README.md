@@ -46,9 +46,16 @@ sudo apt install openssh-server
 ssh-keygen
 ssh-copy-id {user}@{node}	# On every node of your infrastructure
 
+# Initialize needed submodules and clone with correct commit (blue folders with an arrow on GitHub)
+git submodule init
+git submodule update
+
+# OR (advanced users)
 # (Optional) Checkout your Kubespray and Kube-Prometheus prefered version if needed
 git clone https://github.com/kubernetes-sigs/kubespray.git
 git clone https://github.com/coreos/kube-prometheus.git
+
+
 
 # Install the required modules
 sudo pip install -r requirements.txt
