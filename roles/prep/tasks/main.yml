@@ -19,22 +19,22 @@
 
 - name: Update and upgrade apt packages
   apt:
-    upgrade: yes
-    update_cache: yes
+    upgrade: 'True'
+    update_cache: 'True'
 
 
 - name: Autoremove unused apt packages
   apt:
-    autoremove: yes
-
+    autoremove: 'True'
 
 - name: Install python packages
   apt:
     pkg:
       - python
       - python3
-      - python-pip
       - python3-pip
+      - python-pip-whl
+      - python-apt-common
 
 - name: Allow split-tunneling in VPN
   command: "nmcli connection modify {{ vpn_interface }} ipv4.never-default true"
