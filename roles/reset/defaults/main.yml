@@ -2,5 +2,4 @@
 # defaults file for reset
 
 iptables_dir: "{{ k8s_misc_dir }}/iptables"
-manifest_dir: "{{ k8s_misc_dir}}/manifests"
-
+manifest_dir: "{{ k8s_misc_dir }}/manifests"
