@@ -1,3 +1,6 @@
 [submodule "kube-prometheus"]
 	path = kube-prometheus
 	url = https://github.com/prometheus-operator/kube-prometheus
+[submodule "kubespray"]
+	path = kubespray
+	url = https://github.com/kubernetes-sigs/kubespray
