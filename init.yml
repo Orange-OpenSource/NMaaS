@@ -18,7 +18,7 @@
 
 
 # Ready the pool of servers before the platform deployment
-- hosts: localhost:all
+- hosts: all
   gather_facts: false
   become: yes
   roles: 
