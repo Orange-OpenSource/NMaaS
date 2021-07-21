@@ -1,3 +1,6 @@
 ### VPN
 using_vpn: true
 vpn_interface: tun0
+
+### Python
+ansible_python_interpreter: '/usr/bin/python3'

@@ -18,7 +18,7 @@
 
 
 # Ready the pool of servers before the platform deployment
-- hosts: localhost:all
+- hosts: all
   gather_facts: false
   become: yes
   roles: 
@@ -31,7 +31,7 @@
 
 
 # Set up a local registry for container images
-- hosts: kube-master
+- hosts: kube_master
   gather_facts: false
   become: yes
   roles:
@@ -40,7 +40,7 @@
 
 
 # Deploy a monitoring system on top of the K8s cluster
-- hosts: kube-master
+- hosts: kube_master
   gather_facts: false
   become: yes
   roles:
