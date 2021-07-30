@@ -1,2 +1,4 @@
 # GitIgnore for NMaaS
 *.kate-swp
+hosts.yml.bck
+hosts_new.yml
