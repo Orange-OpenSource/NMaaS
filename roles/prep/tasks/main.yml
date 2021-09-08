@@ -30,7 +30,6 @@
 - name: Install python packages
   apt:
     pkg:
-      - python
       - python3
       - python3-pip
       - python-pip-whl

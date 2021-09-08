@@ -24,6 +24,8 @@ This Ansible deployment includes :
 - *Ansible*
 
    Lastly used with the *2.9.6* version.
+   
+**We strongly recommend the use of a VPN**
 
 ## How to start
 
