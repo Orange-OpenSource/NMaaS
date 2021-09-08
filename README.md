@@ -15,16 +15,15 @@ This Ansible deployment includes :
 
 - *Linux*
 
-   Lastly used with the *Ubuntu 20.04 LTS (Groovy Gorilla)* version on all machines.
+   *Ubuntu 20.04 LTS (Groovy Gorilla)* or newer if compatibility is ensured with kubespray
 
 - *Python*
 
-   Both the *2.7* and *3.x* versions are included in this run.
+   *3.x* versions are included in this run. (Lastly used : 3.8.10)
 
 - *Ansible*
 
    Lastly used with the *2.9.6* version.
-
 
 ## How to start
 
@@ -55,13 +54,9 @@ git submodule update
 git clone https://github.com/kubernetes-sigs/kubespray.git
 git clone https://github.com/coreos/kube-prometheus.git
 
-
-
 # Install the required modules
 sudo pip install -r requirements.txt
 ```
-
-
 **Phase 2 — List your machines**
 
 ```bash
