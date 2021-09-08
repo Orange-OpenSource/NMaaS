@@ -47,7 +47,7 @@ Example Playbook
 # ... something something ...
 
 # Deploy a monitoring system on top of the K8s cluster
-- hosts: kube-master
+- hosts: kube_master
   gather_facts: false
   become: yes
   roles:
@@ -75,3 +75,4 @@ Authors
 - Anthony LAMBERT (anthony.lambert@orange.com)
 - Raquel RUGANI LAGE (raquel.ruganilage@orange.com)
 - Bryan TO VAN TRANG (bryan.tovantrang@orange.com)
+- Andrés Eloy DELGADO ANDRADE (andres.delgado@orange.com)
