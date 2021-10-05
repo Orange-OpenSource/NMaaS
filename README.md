@@ -10,6 +10,8 @@ This Ansible deployment includes :
 - [*AlertManager*](https://prometheus.io/docs/alerting/alertmanager/) - Alert and notification broker
 - [*Grafana*](https://grafana.com/) - Analytics and monitoring dashboards
 
+This NMaaS deployment have been tested over a VPN using TLS cypher (OpenSSL) :
+- [*OpenVPN*](https://openvpn.net/) - Virtual Private Network solution
 
 ## Prerequisites
 
@@ -24,8 +26,14 @@ This Ansible deployment includes :
 - *Ansible*
 
    Lastly used with the *2.9.6* version.
-   
-**We strongly recommend the use of a VPN**
+
+## Before deployment : using a VPN 
+This is optional but will make easier your deployment on different networks.
+
+For example purposes, we used OpenVPN. Feel free on using another type or VPN solution.
+
+1. [*Installing OpenVPN server side*](./docs/setOpenVPN.md)
+2. [*Installing OpenVPN client side*](./docs/setOpenVPN-client.md)
 
 ## How to start
 
@@ -52,7 +60,8 @@ git submodule init
 git submodule update
 
 # OR (advanced users)
-# (Optional) Checkout your Kubespray and Kube-Prometheus prefered version if needed
+# (Optional) Checkout your Kubespray and Kube-Prometheus prefered version if needed :
+# It allows you to choose your release. We recommend taking the release we used for security reasons.
 git clone https://github.com/kubernetes-sigs/kubespray.git
 git clone https://github.com/coreos/kube-prometheus.git
 

@@ -1,0 +1,8 @@
+export KEY_COUNTRY="FR"
+export KEY_PROVINCE="Ile-de-France"
+export KEY_CITY="Paris"
+export KEY_ORG="SurveillanceCorp"
+export KEY_EMAIL="me@mail.com"
+export KEY_CN="John Doe"
+export KEY_NAME="John Doe NMaaS CA Server"
+export KEY_OU="OpUnit1"
