@@ -32,7 +32,7 @@ This is optional but will make easier your deployment on different networks.
 
 For example purposes, we used OpenVPN. Feel free on using another type or VPN solution.
 
-1. [*Installing OpenVPN server side*](./docs/setOpenVPN.md)
+1. [*Installing OpenVPN server side*](./docs/setOpenVPN-server.md)
 2. [*Installing OpenVPN client side*](./docs/setOpenVPN-client.md)
 
 ## How to start
@@ -40,7 +40,7 @@ For example purposes, we used OpenVPN. Feel free on using another type or VPN so
 - On the **_nodes_**
 
 ```bash
-sudo apt update	
+sudo apt update
 sudo apt install openssh-client
 sudo apt install python python3-pip 	# If needed
 ```

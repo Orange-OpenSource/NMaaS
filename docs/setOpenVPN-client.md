@@ -79,4 +79,16 @@ _But, we recommend you not to use this config file on a production environment._
 ````bash
 sudo systemctl start openvpn@client
 ````  
-[*Return to server side config*](./setOpenVPN-server.md)
+[*Return to server side config*](./setOpenVPN-server.md)  
+[*Proceed with NMaaS installation*](../README.md)  
+
+## License
+
+NMaaS is under the _Apache 2.0 license_. See the [LICENSE](../LICENSE) file for details.  
+Copyright (c) 2021 Orange  
+
+
+## Authors
+
+- Anthony LAMBERT 		        (anthony.lambert@orange.com)
+- Andrés Eloy DELGADO ANDRADE 	(aedelgado10@gmail.com)
